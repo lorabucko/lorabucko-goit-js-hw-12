@@ -1,10 +1,9 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
 
 const galleryEl = document.querySelector('.gallery');
 const loaderEl = document.querySelector('.loader');
+const loadMoreBtnEl = document.querySelector('.load-more');
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
@@ -15,22 +14,24 @@ const lightbox = new SimpleLightbox('.gallery a', {
 export function createGallery(images) {
   const galleryMarkup = images
     .map(
-      ({ webformatURL,
+      ({
+        webformatURL,
         largeImageURL,
         tags,
         likes,
         views,
         comments,
-        downloads }) =>
-        `<li class="gallery-item">
-        <a class="gallery-link" href="${largeImageURL}">
-          <img
-            class="gallery-image"
-            src="${webformatURL}"
-            alt="${tags}"
-          />
-        </a>
-               <div class="info">
+        downloads,
+      }) => `
+        <li class="gallery-item">
+          <a class="gallery-link" href="${largeImageURL}">
+            <img
+              class="gallery-image"
+              src="${webformatURL}"
+              alt="${tags}"
+            />
+          </a>
+          <div class="info">
             <p class="info-item">
               <b>Likes</b><br />
               ${likes}
@@ -67,4 +68,12 @@ export function showLoader() {
 
 export function hideLoader() {
   loaderEl.classList.add('is-hidden');
+}
+
+export function showLoadMoreButton() {
+  loadMoreBtnEl.classList.remove('is-hidden');
+}
+
+export function hideLoadMoreButton() {
+  loadMoreBtnEl.classList.add('is-hidden');
 }
