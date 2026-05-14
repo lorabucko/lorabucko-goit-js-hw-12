@@ -3,7 +3,27 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 36px;
+  margin: 24px auto;
+  flex-wrap: nowrap;
+}
+
+.form input {
+  width: 272px;
+  height: 40px;
+  padding: 8px 16px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  outline: none;
+}
+
+.form button {
+  height: 40px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #fff;
+  cursor: pointer;
 }
 
 .search-input {
